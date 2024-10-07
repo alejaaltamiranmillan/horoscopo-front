@@ -31,7 +31,7 @@ function AdminHome({user}){
 
     function handleClick(e){
         e.preventDefault();
-        fetch(`http://localhost:4001/api/${signoEditar}`, {
+        fetch(`https://horoscopo-back-steel.vercel.app/api/${signoEditar}`, {
             method: 'PATCH',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({

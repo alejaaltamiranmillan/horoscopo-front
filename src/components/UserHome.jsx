@@ -24,7 +24,7 @@ function UserHome({user}){
 
     async function fetchSignoInfo() {
         try {
-            const response = await fetch(`http://localhost:4001/api/${signoSeleccionado}?perfil=${perfilSeleccionado}`);
+            const response = await fetch(`https://horoscopo-back-steel.vercel.app/api/${signoSeleccionado}?perfil=${perfilSeleccionado}`);
             const responseData = await response.json();
             setTextoSigno(responseData);
         } catch (error) {
