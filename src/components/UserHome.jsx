@@ -3,28 +3,28 @@ import './styles/UserHome.css';
 import TextSigno from "./TextSigno.jsx";
 import { useState, useEffect } from "react";
 
-function UserHome({user}){
-    if(user!=="user" || !user){
-        return <Navigate to="/"/>
+function UserHome({ user }) {
+    if (user !== "user" || !user) {
+        return <Navigate to="/" />;
     }
+
     const home = useNavigate();
     const [textoSigno, setTextoSigno] = useState('');
     const [signoSeleccionado, setSignoSeleccionado] = useState('0');
-    const [perfilSeleccionado, setPerfilSeleccionado] = useState('0');
 
-    function goHome(){
+    function goHome() {
         home("/");
     }
 
     useEffect(() => {
-        if (signoSeleccionado !== "0" && perfilSeleccionado !== "0") {
+        if (signoSeleccionado !== "0") {
             fetchSignoInfo();
         }
-    }, [signoSeleccionado, perfilSeleccionado]);
+    }, [signoSeleccionado]);
 
     async function fetchSignoInfo() {
         try {
-            const response = await fetch(`https://horoscopo-back-steel.vercel.app/api/${signoSeleccionado}?perfil=${perfilSeleccionado}`);
+            const response = await fetch(`https://horoscopo-back-steel.vercel.app/api/${signoSeleccionado}`);
             const responseData = await response.json();
             setTextoSigno(responseData);
         } catch (error) {
@@ -33,17 +33,13 @@ function UserHome({user}){
         }
     }
 
-    function handleSelectSigno(event){
+    function handleSelectSigno(event) {
         setSignoSeleccionado(event.target.value);
-    }
-
-    function handleSelectPerfil(event){
-        setPerfilSeleccionado(event.target.value);
     }
 
     return (
         <div className="container">
-            <div id="txtSeleccionPage"><h3>Selecciona tu signo zodiacal y perfil</h3></div>
+            <div id="txtSeleccionPage"><h3>Selecciona tu signo zodiacal</h3></div>
             <select id="selectSignos" onChange={handleSelectSigno} value={signoSeleccionado}>
                 <option value="0">Selecciona un signo zodiacal</option>
                 <option value="Aries">Aries</option>
@@ -58,16 +54,10 @@ function UserHome({user}){
                 <option value="Acuario">Acuario</option>
                 <option value="Piscis">Piscis</option>
             </select>
-            <select id="selectPerfil" onChange={handleSelectPerfil} value={perfilSeleccionado}>
-                <option value="0">Selecciona un perfil</option>
-                <option value="hombre">Hombre</option>
-                <option value="mujer">Mujer</option>
-                <option value="nino">Niño</option>
-            </select>
-            <TextSigno texto={textoSigno}/>
+            <TextSigno texto={textoSigno} />
             <button id="btnHome" onClick={goHome}>Home</button>
         </div>
-    )
+    );
 }
 
 export default UserHome;

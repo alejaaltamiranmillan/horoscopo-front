@@ -31,6 +31,7 @@ function Form({ callback }) {
             const data = await response.json();
             callback(data.role);
 
+            // Redirigir según el rol del usuario
             if (data.role === 'user') {
                 goTo("/userHome"); // Redirige a la página de usuario
             } else if (data.role === 'admin') {
