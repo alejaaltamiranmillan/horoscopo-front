@@ -13,7 +13,7 @@ function Form({ callback }) {
         setError(''); // Limpiar errores anteriores
 
         try {
-            const response = await fetch('https://horoscopo-back-steel.vercel.app/', {
+            const response = await fetch('https://horoscopo-back-steel.vercel.app/api/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
