@@ -32,9 +32,9 @@ function Form({ callback }) {
             callback(data.role);
 
             if (data.role === 'user') {
-                goTo("/userHome");
+                goTo("/userHome"); // Redirige a la página de usuario
             } else if (data.role === 'admin') {
-                goTo("/adminHome");
+                goTo("/adminHome"); // Redirige a la página de admin
             } else {
                 throw new Error('Rol de usuario desconocido');
             }
