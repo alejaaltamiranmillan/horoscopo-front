@@ -43,8 +43,8 @@ function UserHome({ user }) {
             <select id="selectSignos" onChange={handleSelectSigno} value={signoSeleccionado}>
                 <option value="0">Selecciona un signo zodiacal</option>
                 <option value="Aries">Aries</option>
-                <option value="Geminis">Géminis</option>
-                <option value="Cancer">Cáncer</option>
+                <option value="Géminis">Géminis</option>
+                <option value="Cáncer">Cáncer</option>
                 <option value="Leo">Leo</option>
                 <option value="Virgo">Virgo</option>
                 <option value="Libra">Libra</option>
@@ -54,7 +54,10 @@ function UserHome({ user }) {
                 <option value="Acuario">Acuario</option>
                 <option value="Piscis">Piscis</option>
             </select>
-            <TextSigno texto={textoSigno} />
+            <div className="resultado">
+                {/* Aquí solo se muestra el texto sin opción de editar */}
+                <textarea value={textoSigno} readOnly />
+            </div>
             <button id="btnHome" onClick={goHome}>Home</button>
         </div>
     );

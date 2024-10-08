@@ -1,35 +1,66 @@
-body{
+body {
     justify-content: center;
     text-align: center;
 }
 
-.entry{
+.entry {
     border-radius: 10px;
     padding: 10px 20px 10px 35px;
+    margin-bottom: 20px; /* Añadir un margen inferior para separar campos */
 }
 
-form{
+form {
     padding: 20px;
-    padding-top: 10%;
+    padding-top: 4%;
 }
 
-#btnEnviar{
-    margin-top: 20px;
-    background-color: rgb(48, 27, 238);
-    padding: 5px;
-    padding-left: 35px;
-    padding-right: 35px;
-    border-radius: 15px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: white;
+#btnEnviar {
+    background-color: #007bff; /* Color de fondo azul */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 20px; /* Esquinas redondeadas */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    font-size: 16px; /* Tamaño de fuente */
+    transition: background-color 0.3s ease; /* Efecto de transición */
+    margin-bottom: 10px; /* Añadir un margen inferior para separación */
 }
 
-.txt{
+#btnEnviar:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el ratón */
+}
+
+#btnEnviar:focus {
+    outline: none; /* Sin borde de enfoque */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra de enfoque */
+}
+
+.txt {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-#txtBienvenida{
+#txtBienvenida {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-style: oblique;
     color: white;
+}
+
+#btnChangePassword {
+    background-color: #007bff; /* Color de fondo azul */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 20px; /* Esquinas redondeadas */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    font-size: 16px; /* Tamaño de fuente */
+    transition: background-color 0.3s ease; /* Efecto de transición */
+}
+
+#btnChangePassword:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el ratón */
+}
+
+#btnChangePassword:focus {
+    outline: none; /* Sin borde de enfoque */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra de enfoque */
 }

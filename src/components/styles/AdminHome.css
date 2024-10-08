@@ -15,13 +15,25 @@
 }
 
 #btnEditar{
-    margin-top: 10%;
-    padding: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 10px;
-    background-color: brown;
-    color: white;
+    background-color: #e6508e; /* Color de fondo azul */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 20px; /* Esquinas redondeadas */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    font-size: 16px; /* Tamaño de fuente */
+    transition: background-color 0.3s ease; /* Efecto de transición */
+    margin-bottom: 10px;
+    margin-top: 100px;
+}
+
+#btnEditar:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el ratón */
+}
+
+#btnEditar:focus {
+    outline: none; /* Sin borde de enfoque */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra de enfoque */
 }
 
 #textoAdmin{
@@ -36,11 +48,21 @@
 }
 
 #btnHomeAdmin{
-    margin-top: 15px;
-    padding: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
-    border-radius: 10px;
-    background-color: blue;
-    color: white
+    background-color: #ff9d70; /* Color de fondo azul */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 20px; /* Esquinas redondeadas */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    font-size: 16px; /* Tamaño de fuente */
+    transition: background-color 0.3s ease; /* Efecto de transición */
+}
+
+#btnHomeAdmin:hover {
+    background-color: #93e483; /* Color de fondo al pasar el ratón */
+}
+
+#btnHomeAdmin:focus {
+    outline: none; /* Sin borde de enfoque */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra de enfoque */
 }

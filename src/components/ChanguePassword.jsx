@@ -1,11 +1,13 @@
 import './styles/Form.css';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 
 function ChangePassword() {
     const [username, setUsername] = useState('');
     const [currentPassword, setCurrentPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [message, setMessage] = useState('');
+    const navigate = useNavigate(); // Inicializa useNavigate
 
     const handleChangePassword = async (event) => {
         event.preventDefault();
@@ -36,6 +38,11 @@ function ChangePassword() {
             console.error('Error al cambiar la contraseña:', error);
             setMessage('Error al cambiar la contraseña. Intenta de nuevo.');
         }
+    };
+
+    // Función para ir a la página de inicio
+    const goHome = () => {
+        navigate('/'); // Cambia la ruta según sea necesario
     };
 
     return (
@@ -71,6 +78,11 @@ function ChangePassword() {
             <input type="submit" value="Cambiar Contraseña" id="btnEnviar" />
             
             {message && <p>{message}</p>}
+
+            {/* Botón para ir a Home */}
+            <button type="button" onClick={goHome} id="btnHome">
+                Volver a Home
+            </button>
         </form>
     );
 }

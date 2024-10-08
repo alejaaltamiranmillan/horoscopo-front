@@ -1,12 +1,11 @@
-.container{
+.container {
     height: 300px;
     display: grid;
     place-items: center;
 }
 
-#selectSignos{
-    margin-top: 0px;
-    margin: 100px;
+#selectSignos {
+    margin: 20px; /* Reduce el margen */
     width: 400px;
     padding: 5px 50px 5px 10px;
     border-radius: 10px;
@@ -14,19 +13,33 @@
     color: white;
 }
 
-#txtSeleccionPage{
-    padding: 50px;
+#txtSeleccionPage {
+    padding: 20px; /* Reduce el padding */
     padding-bottom: 0px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-style: italic  ;
+    font-style: italic;
 }
 
-#btnHome{
-    margin-top: 100px;
+#btnHome {
+    margin-top: 20px; /* Reduce el margen superior */
     background-color: blue;
     color: white;
-    padding: 50px;
-    padding-bottom: 5px;
-    padding-top: 5px;
+    padding: 10px 20px; /* Reduce el padding */
     border-radius: 10px;
+}
+
+.resultado {
+    margin-top: 20px; /* Reduce el margen superior para estar más cerca del select */
+    width: 400px; /* Ajusta el ancho según tus necesidades */
+}
+
+.resultado textarea {
+    width: 100%; /* Ancho del textarea al 100% de su contenedor */
+    height: 200px; /* Ajusta la altura a un tamaño mayor */
+    font-size: 16px; /* Aumenta el tamaño de la fuente si lo deseas */
+    padding: 10px; /* Padding para un mejor aspecto */
+    border: 1px solid #ccc; /* Estilo de borde */
+    border-radius: 10px; /* Esquinas redondeadas */
+    resize: none; /* Evita que el usuario cambie el tamaño del cuadro */
+    background-color: rgb(245, 245, 245); /* Color de fondo si lo deseas */
 }
