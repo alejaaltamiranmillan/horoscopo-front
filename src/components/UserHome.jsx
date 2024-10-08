@@ -1,6 +1,5 @@
 import { Navigate, useNavigate } from "react-router-dom";
 import './styles/UserHome.css';
-import TextSigno from "./TextSigno.jsx";
 import { useState, useEffect } from "react";
 
 function UserHome({ user }) {
@@ -24,9 +23,12 @@ function UserHome({ user }) {
 
     async function fetchSignoInfo() {
         try {
-            const response = await fetch(`https://horoscopo-back-steel.vercel.app/api/${signoSeleccionado}`);
+            const response = await fetch(`/api/signos/${signoSeleccionado}.json`);
+            if (!response.ok) {
+                throw new Error("Error al obtener los datos del signo");
+            }
             const responseData = await response.json();
-            setTextoSigno(responseData);
+            setTextoSigno(responseData.mensaje); // Asegurándote de que 'mensaje' sea la clave correcta en el JSON
         } catch (error) {
             console.error("Error fetching signo info:", error);
             setTextoSigno("Error al obtener la información del signo.");
