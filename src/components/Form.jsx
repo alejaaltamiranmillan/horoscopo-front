@@ -6,11 +6,13 @@ function Form({ callback }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false); // Indicador de carga
     const goTo = useNavigate();
 
     const validateUser = async (event) => {
         event.preventDefault();
         setError(''); // Limpiar errores anteriores
+        setLoading(true); // Iniciar indicador de carga
 
         try {
             const response = await fetch('https://horoscopo-back-steel.vercel.app/api/login', {
@@ -29,7 +31,7 @@ function Form({ callback }) {
             }
 
             const data = await response.json();
-            callback(data.role);
+            callback(data.role); // Asignar rol recibido
 
             // Redirigir según el rol del usuario
             if (data.role === 'user') {
@@ -42,6 +44,8 @@ function Form({ callback }) {
         } catch (error) {
             console.error('Error durante la autenticación:', error);
             setError(error.message || 'Error al intentar iniciar sesión. Por favor, inténtelo de nuevo.');
+        } finally {
+            setLoading(false); // Detener indicador de carga
         }
     };
 
@@ -68,11 +72,15 @@ function Form({ callback }) {
                 onChange={(e) => setPassword(e.target.value)}
                 required
             /><br />
-            <input type="submit" value="Ingresar" id="btnEnviar" />
-
+            <input type="submit" value="Ingresar" id="btnEnviar" disabled={loading} />
+            
+            {/* Mostrar mensaje de error */}
             {error && <p style={{ color: 'red' }}>{error}</p>}
 
-            <button type="button" onClick={goToChangePassword} id="btnChangePassword">
+            {/* Mostrar un indicador de carga si la solicitud está en curso */}
+            {loading && <p>Cargando...</p>}
+
+            <button type="button" onClick={goToChangePassword} id="btnChangePassword" disabled={loading}>
                 Cambiar Contraseña
             </button>
         </form>
