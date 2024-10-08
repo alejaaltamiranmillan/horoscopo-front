@@ -1,44 +1,67 @@
 import { Navigate, useNavigate } from "react-router-dom";
-import './styles/AdminHome.css'
+import './styles/AdminHome.css';
 import { useState } from "react";
 
-function AdminHome({user}){
-    if(user!=='admin' || !user){
-        return <Navigate to="/"/>
-    }
+function AdminHome({ user }) {
     const home = useNavigate();
     const [textoEditar, setTextoEditar] = useState("");
     const [signoEditar, setSignoEditar] = useState("");
     const [perfilEditar, setPerfilEditar] = useState("");
 
-    function handleSelectSigno(event){
+    // Verificación del usuario
+    if (user !== 'admin' || !user) {
+        return <Navigate to="/" />;
+    }
+
+    function handleSelectSigno(event) {
         const signo = event.target.value;
-        if(signo!=="0"){
+        if (signo !== "0") {
             setSignoEditar(signo);
         }
     }
 
-    function handleSelectPerfil(event){
+    function handleSelectPerfil(event) {
         const perfil = event.target.value;
-        if(perfil!=="0"){
+        if (perfil !== "0") {
             setPerfilEditar(perfil);
         }
     }
 
-    function goHome(){
+    function goHome() {
         home("/");
     }
 
-    function handleClick(e){
+    function handleClick(e) {
         e.preventDefault();
+
+        // Validación antes de enviar la solicitud
+        if (!signoEditar || !perfilEditar || !textoEditar) {
+            alert('Por favor selecciona un signo, un perfil y escribe el texto.');
+            return;
+        }
+
+        // Petición PATCH con manejo de errores
         fetch(`https://horoscopo-back-steel.vercel.app/api/${signoEditar}`, {
             method: 'PATCH',
-            headers: {"Content-Type": "application/json"},
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 "textoEditar": textoEditar,
                 "perfil": perfilEditar
             })
         })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error en la actualización');
+            }
+            return response.json();
+        })
+        .then(data => {
+            alert('Signo actualizado con éxito');
+        })
+        .catch(error => {
+            console.error('Hubo un error:', error);
+            alert('Hubo un error al actualizar el signo');
+        });
     }
 
     return (
@@ -64,17 +87,17 @@ function AdminHome({user}){
                 <option value="mujer">Mujer</option>
                 <option value="nino">Niño</option>
             </select>
-            <textarea 
-                id="textoEditar" 
-                cols="50" 
-                rows="10" 
-                onChange={(e)=> setTextoEditar(e.target.value)}
+            <textarea
+                id="textoEditar"
+                cols="50"
+                rows="10"
+                onChange={(e) => setTextoEditar(e.target.value)}
                 value={textoEditar}
             ></textarea>
             <button id="btnEditar" onClick={handleClick}>Editar</button>
             <button id="btnHomeAdmin" onClick={goHome}>Home</button>
         </div>
-    )
+    );
 }
 
 export default AdminHome;
