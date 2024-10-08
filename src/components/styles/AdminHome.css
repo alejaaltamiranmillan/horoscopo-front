@@ -15,7 +15,7 @@
 }
 
 #btnEditar{
-    background-color: #e6508e; /* Color de fondo azul */
+    background-color: #007bff; /* Color de fondo azul */
     color: white; /* Color del texto */
     border: none; /* Sin borde */
     padding: 10px 20px; /* Espaciado interno */
@@ -48,7 +48,7 @@
 }
 
 #btnHomeAdmin{
-    background-color: #ff9d70; /* Color de fondo azul */
+    background-color: #007bff; /* Color de fondo azul */
     color: white; /* Color del texto */
     border: none; /* Sin borde */
     padding: 10px 20px; /* Espaciado interno */
@@ -59,7 +59,7 @@
 }
 
 #btnHomeAdmin:hover {
-    background-color: #93e483; /* Color de fondo al pasar el ratón */
+    background-color: #0056b3; /* Color de fondo al pasar el ratón */
 }
 
 #btnHomeAdmin:focus {
